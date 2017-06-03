@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Deposit Money</title>
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<h:inputText binding = "#{accountNumber}" p:placeholder = "Account Number"></h:inputText>
+		<h:inputText id = "depositAmount" binding = "#{balance}" p:placeholder = "Deposit Amount">
+			
+		</h:inputText>
+		<h:commandButton value = "Deposit Money" action = "#{accountService.deposit(accountNumber.value, balance.value)}"></h:commandButton>
+	</h:form>
+	
+	<h:outputLink value="index.xhtml">Home</h:outputLink>
+</h:body>
+</html>

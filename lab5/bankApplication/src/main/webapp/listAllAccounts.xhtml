@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>List All Accounts</title>
+	
+	    <style type="text/css">
+        .order-table{
+            border-collapse:collapse;
+        }
+
+        .order-table-header{
+            text-align:center;
+            background:none repeat scroll 0 0 #E5E5E5;
+            border-bottom:1px solid #BBBBBB;
+            padding:12px;
+        }
+
+        .order-table-odd-row{
+            text-align:center;
+            background:none repeat scroll 0 0 lightgray;
+            border-top:1px solid #BBBBBB;
+        }
+
+        .order-table-even-row{
+            text-align:center;
+            background:none repeat scroll 0 0 #F8F8F8;
+            border-top:1px solid #BBBBBB;
+        }
+    </style>
+</h:head>
+
+<h:body>
+
+ <h1>Account List</h1>
+
+    <h:dataTable value="#{accountService.allAccounts}" var="a"
+                 styleClass="order-table"
+                 headerClass="order-table-header"
+                 rowClasses="order-table-odd-row,order-table-even-row"
+    >
+        <h:column>
+            <f:facet name="header">Account Number</f:facet>
+            <!-- row record -->
+            #{a.accountnumber}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Customer name</f:facet>
+            #{a.customer.name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Account Balance</f:facet>
+            #{a.balance}
+        </h:column>
+    </h:dataTable>
+    <h:outputLink value="index.xhtml">Home</h:outputLink>
+    
+</h:body>
+</html>
